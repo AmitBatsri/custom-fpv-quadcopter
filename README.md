@@ -1,6 +1,6 @@
 # Custom FPV Quadcopter
 A custom quadcopter built from scratch: STM32F405 flight controller PCB, embedded firmware, ESP-NOW wireless controller, and 3D-printed frame.
-![Full CAD assembly](cad-isometric.png)
+![Full CAD assembly](images/cad-isometric.png)
 ## Overview
 
 This project is a 5-inch FPV quadcopter featuring a fully custom frame, electronics package, and firmware built from individual parts using university equipment and resources. At its core is a custom 4-layer flight controller PCB built around an STM32F405 microcontroller, interfacing with an IMU and barometer over SPI, I²C, and UART. The drone communicates wirelessly through ESP-NOW with a custom handheld controller, and the goal is to achieve stable flight with live video streaming from an onboard camera.

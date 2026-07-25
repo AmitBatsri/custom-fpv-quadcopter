@@ -90,3 +90,24 @@ A custom PCB built around an ESP32-S3, featuring two analog joysticks, arming an
 | Assembled Controller | Controller PCB |
 |----------------------|----------------|
 | ![Controller](Controller.jpeg) | ![Controller PCB](Controller_PCB.jpeg) |
+
+## Firmware
+
+The firmware is split across the two microcontrollers: the ESP32-S3 in the controller and the STM32F405 on the drone. All firmware is written in C/C++. The ESP32 code is written in Arduino IDE and the flight controller in STM32CubeIDE using the HAL.
+
+### Wireless Communication (ESP-NOW)
+
+The controller and drone communicate over ESP-NOW, a low-power wireless communication protocol. The link is designed to be robust and safe for flight:
+
+- **Structured packet protocol:** control and telemetry data are sent as fixed, versioned binary packets defined in a shared header, ensuring that both devices always agree on the format.
+- **Broadcast-based pairing:** the devices communicate without hardcoded addresses, so the firmware works across different ESP32 modules.
+- **Link-quality monitoring:** the controller tracks packet delivery success in real time and calculates the link quality based on the collected data.
+- **Fail-safe:** if the drone stops receiving valid control packets, it automatically cuts throttle and disarms in order to prevent flying away and other unwanted behavior
+
+### Controller Firmware (ESP32-S3)
+
+Runs the handheld controller: reads two analog joysticks and arm/mode switches, processes them into throttle, yaw, roll, and pitch values, and updates an OLED display showing live control values and telemetry. Throttle uses an incremental control method that works best with self-centering joysticks, with the arming switch that disables the motors until further command.
+
+### Flight Controller Firmware (STM32F405) — In Progress
+
+The flight controller firmware is currently being developed in STM32CubeIDE. It reads the IMU and barometer, and will implement sensor fusion for attitude estimation, PID stabilization loops, and DSHOT motor control to achieve stable flight. Development is being done incrementally, bringing up and testing each subsystem individually.

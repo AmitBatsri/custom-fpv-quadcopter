@@ -57,7 +57,7 @@ graph TD
 
 The flight controller is a custom 4-layer PCB (52 × 52 mm) built around an STM32F405RGT6 microcontroller (168 MHz Cortex-M4F). It integrates all sensing, power regulation, and motor interfacing needed to fly the quadcopter on a single compact board.
 
-![Flight controller 3D view](PCB_3D_VIEWER)
+![Flight controller 3D view](PCB_3D_VIEWER.png)
 
 **Key components:**
 - **MCU:** STM32F405RGT6 (168 MHz Cortex-M4F, 1 MB flash)
@@ -75,7 +75,7 @@ The flight controller is a custom 4-layer PCB (52 × 52 mm) built around an STM3
 
 | Schematic | PCB Layout |
 |-----------|-----------|
-| ![Schematic](PCB_Schematic) | ![Layout](PCB_Layout) |
+| ![Schematic](PCB_Schematic.png) | ![Layout](PCB_Layout.png) |
 
 **Fabricated board:**
 
@@ -87,3 +87,6 @@ The flight controller is a custom 4-layer PCB (52 × 52 mm) built around an STM3
 
 A custom PCB built around an ESP32-S3, featuring two analog joysticks, arm and mode switches, and an OLED display for live status and telemetry. The controller sends flight commands and receives telemetry over ESP-NOW.
 
+| Assembled Controller | Controller PCB |
+|----------------------|----------------|
+| ![Controller](docs/images/controller.png) | ![Controller PCB](docs/images/controller-pcb.png) |

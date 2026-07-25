@@ -55,7 +55,7 @@ graph TD
 
 ### Flight Controller PCB
 
-The flight controller is a custom 4-layer PCB (52 × 52 mm) built around an STM32F405RGT6 microcontroller (168 MHz Cortex-M4F). It integrates all sensing, power regulation, and motor interfacing needed to fly the quadcopter on a single compact board.
+The flight controller is a custom 4-layer PCB (52 × 52 mm) built around an STM32F405RGT6 microcontroller. It integrates all sensing, power regulation, and motor interfacing needed to fly the quadcopter on a single compact board.
 
 ![Flight controller 3D view](PCB_3D_VIEWER.png)
 
@@ -67,9 +67,9 @@ The flight controller is a custom 4-layer PCB (52 × 52 mm) built around an STM3
 - **Motor interface:** DSHOT to a 4-in-1 ESC
 - **Wireless link:** UART to an onboard ESP32-WROOM
 
-**Power architecture:** The board runs directly off a 4S LiPo, stepping the battery voltage down to a 5 V rail via a buck regulator, then to separate 3.3 V rails through LDOs — including a dedicated rail for the ESP32 to isolate it from the flight-critical electronics.
+**Power architecture:** The board runs directly off a 4S LiPo, stepping the battery voltage down to a 5 V rail via a buck regulator, then to separate 3.3 V rails through linear voltage regulators consisting of a dedicated rail for the ESP32 to isolate it from the flight-related
 
-**Design highlights:** careful multi-rail power distribution, decoupling placed close to each IC, isolation of sensitive sensor signals from noisy switching lines, and dense signal routing across all four layers.
+**Design highlights:**  Multi-rail power distribution, decoupling placed close to each IC, isolation of sensitive sensor signals from noisy routes, and dense signal routing across layers.
 
 **Design files:**
 
@@ -85,8 +85,8 @@ The flight controller is a custom 4-layer PCB (52 × 52 mm) built around an STM3
 
 ### Handheld Controller PCB
 
-A custom PCB built around an ESP32-S3, featuring two analog joysticks, arm and mode switches, and an OLED display for live status and telemetry. The controller sends flight commands and receives telemetry over ESP-NOW.
+A custom PCB built around an ESP32-S3, featuring two analog joysticks, arming and mode switches, and an OLED display for live status and testing data. The controller sends flight commands and receives telemetry over ESP-NOW.
 
 | Assembled Controller | Controller PCB |
 |----------------------|----------------|
-| ![Controller](docs/images/controller.png) | ![Controller PCB](docs/images/controller-pcb.png) |
+| ![Controller](Controller.jpeg) | ![Controller PCB](Controller_PCB.jpeg) |

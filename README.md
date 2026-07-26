@@ -111,3 +111,13 @@ Runs the handheld controller: reads two analog joysticks and arm/mode switches, 
 ### Flight Controller Firmware (STM32F405) — In Progress
 
 The flight controller firmware is currently being developed in STM32CubeIDE. It reads the IMU and barometer, and will implement sensor fusion for attitude estimation, PID stabilization loops, and DSHOT motor control to achieve stable flight. Development is being done incrementally, bringing up and testing each subsystem individually.
+
+## Mechanical Design
+
+Both the drone airframe and the handheld controller enclosure were designed in SolidWorks and 3D-printed.
+
+The drone frame uses a plate-style design sized for 5-inch propellers, consisting of top and bottom plates that house the flight controller stack, four arms, corner spacers, and a mount for the ESP32-CAM.
+
+The controller houses the ESP32-S3 board, joysticks, switches, and OLED display in a custom enclosure designed for a comfortable handheld form factor.
+
+The full CAD models are available in the cad folder.
